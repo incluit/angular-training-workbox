@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-md-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-success" (click)="getCacheFirst()">[GET] cacheFirst</button>
+        </div>
+        <div class="card-body" *ngIf="cacheFirstLoaded && !cacheFirstError">
+          <ul class="list-unstyled">
+            <li *ngFor="let joke of dataCacheFirst">
+              {{ joke.joke }}
+            </li>
+          </ul>
+        </div>
+        <div class="alert" role="alert" *ngIf="cacheFirstError">
+          error en la red
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-success" (click)="getNetworkFirst()">[GET] NetworkFirst</button>
+        </div>
+        <div class="card-body" *ngIf="networkFirstLoaded && !networkFirstError">
+          <ul class="list-unstyled">
+            <li *ngFor="let joke of dataNetworkFirst">
+              {{ joke.joke }}
+            </li>
+          </ul>
+        </div>
+        <div class="alert" role="alert" *ngIf="networkFirstError">
+            error en la red
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-success" (click)="postPagos()">[POST] Pagos</button>
+        </div>
+        <div class="card-body" *ngIf="pagoProcesado && !pagoError">
+          {{ dataPago }}
+        </div>
+        <div class="alert" role="alert" *ngIf="pagoError">
+            error en la red
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
