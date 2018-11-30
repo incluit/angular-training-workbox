@@ -23,7 +23,7 @@ function registerServiceWorker() {
           setTimeout(() => registro.sync.register('prueba-db') , 3000);
         } */
 
-        /* Notification.requestPermission().then((permiso) => {
+        Notification.requestPermission().then((permiso) => {
           console.log('Concedio permisos para recibir notificaciones? ', permiso);
           getPublicKey().then((key) => {
             registro.pushManager.subscribe({
@@ -46,7 +46,7 @@ function registerServiceWorker() {
                 });
             });
           });
-        }); */
+        });
       })
       .catch(e => console.error('Error during service worker registration:', e));
   } else {

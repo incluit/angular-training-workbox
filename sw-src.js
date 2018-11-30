@@ -147,33 +147,35 @@ self.addEventListener('sync', event => {
 });
 
 
+
+*/
+
 // PUSH: Manejar las push notifications
 self.addEventListener('push', event => {
-    console.log('hook: push', 'Notificacion recibida');
-    const data = JSON.parse( event.data.text() );
-    const title = data.titulo;
-    const options = {
-        body: data.cuerpo,
-        icon: `assets/icons/icon-72x72.png`,
-        badge: 'favicon.ico',
-        image: 'https://picsum.photos/200/300',
-        vibrate: [125,75,125,275,200,275,125,75,125,275,200,600,200,600],
-        openUrl: '/',
-        data: {
-            url: '/',
-        },
-        actions: [
-            {
-                action: 'ejemplo.',
-                title: 'Una accion',
-            },
-        ]
-    };
-    event.waitUntil( self.registration.showNotification( title, options) );
+  console.log('hook: push', 'Notificacion recibida');
+  const data = JSON.parse( event.data.text() );
+  const title = data.titulo;
+  const options = {
+      body: data.cuerpo,
+      icon: `assets/icons/icon-72x72.png`,
+      badge: 'favicon.ico',
+      image: 'https://picsum.photos/200/300',
+      vibrate: [125,75,125,275,200,275,125,75,125,275,200,600,200,600],
+      openUrl: '/',
+      data: {
+          url: '/',
+      },
+      actions: [
+          {
+              action: 'ejemplo.',
+              title: 'Una accion',
+          },
+      ]
+  };
+  event.waitUntil( self.registration.showNotification( title, options) );
 });
 
 // Cierra la notificacion
 self.addEventListener('notificationclose', e => {
-  console.log('Notificación cerrada', e);
+console.log('Notificación cerrada', e);
 });
-*/
